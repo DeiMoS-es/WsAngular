@@ -12,7 +12,9 @@ export class EmpleadoComponent implements OnInit {
   nombre="Nagib";
   apellido="Delgado";
   edad=28;
-  //empresa="nagib.S.A";
+  empresa="Google";
+
+
 
  /*  getEdad(){
     return this.edad;
@@ -22,7 +24,7 @@ export class EmpleadoComponent implements OnInit {
   llamaEmpresa(value:String){} 
   */
 
-  habilitacionCuadro = true;
+  habilitacionCuadro = false;
   usuRegistrado=true;
 
   textoRegistro ="No hay nadie registrado";
@@ -41,6 +43,7 @@ export class EmpleadoComponent implements OnInit {
     this.textoRegistro="No hay nadie registrado";
   }
 }
+
   constructor() { }
 
   ngOnInit(): void {
