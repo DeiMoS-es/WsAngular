@@ -14,6 +14,12 @@ Introduce la empresa<input type="text" #empresa (keyup)="0" [disabled] = "habili
 <!-- Forma de hacerlo creando una funcion en el archivo TS
     <input type="button" value="Confirmar" (click)="llamaEmpresa(empresa.value)"> 
 -->
-
-Registrado: <input type="checkbox" id="registro" [checked]="usuRegistrado">
+<!--Binding, para event binding asosiamos el evento (click) a la funcion-->
+{{textoRegistro}}
+<br>
+Registrado: <input type="checkbox" id="registro" [checked]="usuRegistrado" (click)="setUsuarioRegistrado($event)">
+<br>
+Registrado: <input type="radio" value="Si" name="nRegistro" [checked]="usuRegistrado" (click)="setUsuarioRegistrado($event)">
+<br>
+No registrado: <input type="radio" value="No" name="nRegistro" (click)="setUsuarioRegistrado($event)">
 {{getRegistroUsuario()}}
