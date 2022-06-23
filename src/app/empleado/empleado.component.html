@@ -1,4 +1,16 @@
 <p>Nombre del empleado: {{nombre}}</p>
 <p>Apellido del empleado: {{apellido}}</p>
 <p>Edad del empleado: {{edad < 18 ? "Menor de edad" : "Mayor de edad"}}</p>
-<p>Empresa del empleado: {{empresa}}</p>
+<p>Empresa del empleado: {{empresa.value}}</p><!--con .value accedemos al valor-->
+
+Introduce la empresa<input type="text" #empresa (keyup)="0">
+<!--
+    con # nombramos al campo
+    segunda forma de hacerlo, sin el boton, creando el evento (keyup), entre () el tiempo de espera
+-->
+<br>
+<br>
+
+<!-- Forma de hacerlo creando una funcion en el archivo TS
+    <input type="button" value="Confirmar" (click)="llamaEmpresa(empresa.value)"> 
+-->
