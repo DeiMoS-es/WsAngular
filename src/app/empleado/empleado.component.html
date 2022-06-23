@@ -3,7 +3,7 @@
 <p>Edad del empleado: {{edad < 18 ? "Menor de edad" : "Mayor de edad"}}</p>
 <p>Empresa del empleado: {{empresa.value}}</p><!--con .value accedemos al valor-->
 
-Introduce la empresa<input type="text" #empresa (keyup)="0">
+Introduce la empresa<input type="text" #empresa (keyup)="0" [disabled] = "habilitacionCuadro">
 <!--
     con # nombramos al campo
     segunda forma de hacerlo, sin el boton, creando el evento (keyup), entre () el tiempo de espera
@@ -14,3 +14,6 @@ Introduce la empresa<input type="text" #empresa (keyup)="0">
 <!-- Forma de hacerlo creando una funcion en el archivo TS
     <input type="button" value="Confirmar" (click)="llamaEmpresa(empresa.value)"> 
 -->
+
+Registrado: <input type="checkbox" id="registro" [checked]="usuRegistrado">
+{{getRegistroUsuario()}}

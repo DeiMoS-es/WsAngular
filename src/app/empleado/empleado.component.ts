@@ -22,6 +22,12 @@ export class EmpleadoComponent implements OnInit {
   llamaEmpresa(value:String){} 
   */
 
+  habilitacionCuadro = true;
+  usuRegistrado=true;
+
+  getRegistroUsuario(){
+    this.usuRegistrado = false;
+  }
   constructor() { }
 
   ngOnInit(): void {
