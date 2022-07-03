@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Empleado } from './empleado.model';
+import { ServicioEmpleadosService } from './servicio-empleados.service';
 
 @Component({
   selector: 'app-root',
@@ -23,7 +24,14 @@ export class AppComponent {
 
   agregarEmpleado(){
     let miEmpleado = new Empleado(this.cuadroNombre, this.cuadroApellido, this.cuadroCargo, this.cuadroSalario);
+    //Antes de añadir el empleado, quiero hacer uso del servicio que acabamos de crear
+    this.miServicio.muestraMensaje("Nombre del empleado: " + miEmpleado.nombre);
     this.empleados.push(miEmpleado);
+  }
+
+  /* Constructor para el servicio, con esto inyectamos el servicio que hemos creado */
+  constructor(private miServicio: ServicioEmpleadosService){
+
   }
 
 }
