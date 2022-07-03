@@ -10,14 +10,15 @@ export class CaracteristicasEmpleadoCComponent implements OnInit {
 
   @Output() caracteristicasEmpleados = new EventEmitter<string>();
 
-  constructor(private miServicio: ServicioEmpleadosService) { }
+  constructor(private miServicio: ServicioEmpleadosService) { } //No es necesario, porque en mi servicio empleado.service.ts, he inyectado el servicio de muestra mensaje
 
   ngOnInit(): void {
   }
 
   agregaCaracteristicas(value: string){
-    //En este caso al servicio le pasamos value, porque es la "caracteristica" que recibe el método
+// No es necesario, porque en mi servicio empleado.service.ts, he inyectado el servicio de muestra mensaje ESTO SOBRA
+  //  En este caso al servicio le pasamos value, porque es la "caracteristica" que recibe el método
     this.miServicio.muestraMensaje(value);
-    this.caracteristicasEmpleados.emit(value);
+    this.caracteristicasEmpleados.emit(value); 
   }
 }

@@ -28,9 +28,9 @@ export class AppComponent implements OnInit {
   agregarEmpleado(){
     let miEmpleado = new Empleado(this.cuadroNombre, this.cuadroApellido, this.cuadroCargo, this.cuadroSalario);
     //Antes de añadir el empleado, quiero hacer uso del servicio que acabamos de crear
-    this.miServicio.muestraMensaje("Nombre del empleado: " + miEmpleado.nombre);
+   // this.miServicio.muestraMensaje("Nombre del empleado: " + miEmpleado.nombre); no la neesito porque ya lo he inyectado en el empleados.service.ts
     //this.empleados.push(miEmpleado); lo uso tambien en el servicio
-    this.empleadosService.agregarEmpleadoServicio(miEmpleado);
+    this.empleadosService.agregarEmpleadoServicio(miEmpleado);//en este servicio es donde está todo lo anterior
   }
 
   /* Constructor para el servicio, con esto inyectamos el servicio que hemos creado, con el segundo, inyecto el servicio de empleado y hacer uso de sus metodos */

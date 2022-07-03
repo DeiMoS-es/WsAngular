@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Empleado } from './empleado.model';
+import { ServicioEmpleadosService } from './servicio-empleados.service';
 
+//para poder inyectar un servicio dentro de otro
 @Injectable({
   providedIn: 'root'
 })
 export class EmpleadosService {
 
-  constructor() { }
+  constructor(private servicioVentanaEmergente: ServicioEmpleadosService) { }
 
   empleados: Empleado[] = [
     new Empleado("Nagib", "Delgado", "Presidente", 7500),
@@ -16,6 +18,9 @@ export class EmpleadosService {
   ];
 
   agregarEmpleadoServicio(empleado: Empleado){
+    this.servicioVentanaEmergente.muestraMensaje("Nombre del usuario a agregar: " + empleado.nombre + "\n" + "Salario: " + empleado.salario);
     this.empleados.push(empleado);
   }
+
+
 }
