@@ -13,6 +13,7 @@ import { QuienesComponentComponent } from './quienes-component/quienes-component
 import { ContactoComponentComponent } from './contacto-component/contacto-component.component';
 import { RouterModule, Routes } from '@angular/router';
 import { ActualizaComponentComponent } from './actualiza-component/actualiza-component.component';
+import { ErrorPersonalizadoComponent } from './error-personalizado/error-personalizado.component';
 
 //definimos las rutas para los distintos componentes
 const appRoutes: Routes=[
@@ -21,6 +22,7 @@ const appRoutes: Routes=[
   ,{path:'quienes', component: QuienesComponentComponent}
   ,{path:'contacto', component: ContactoComponentComponent}
   ,{path:'actualiza/:id', component: ActualizaComponentComponent}//preparamos la url de actualiza para que reciba el id
+  ,{path:'**', component: ErrorPersonalizadoComponent}//ruta error, siempre en último lugar
 ];
 
 @NgModule({
@@ -32,7 +34,8 @@ const appRoutes: Routes=[
     ProyectosComponentComponent,
     QuienesComponentComponent,
     ContactoComponentComponent,
-    ActualizaComponentComponent
+    ActualizaComponentComponent,
+    ErrorPersonalizadoComponent
   ],
   imports: [
     BrowserModule,
