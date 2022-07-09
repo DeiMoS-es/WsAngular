@@ -15,6 +15,7 @@ export class ActualizaComponentComponent implements OnInit {
   cuadroCargo: String = "";
   cuadroSalario: number = 0;
   indice: number; //variable en la que almacenaré el id que me llega desde la url
+  accion:number;//variable para controlar la operacion de acutalizar/eliminar
   constructor(private route: ActivatedRoute,private router: Router, private miServicio: ServicioEmpleadosService, private empleadosService: EmpleadosService) { }
  
   empleados: Empleado[] = [] //debemos dejar un array vacio para que cuando inyete la info del servicio se almacene en este array
@@ -28,8 +29,10 @@ export class ActualizaComponentComponent implements OnInit {
     this.cuadroApellido = empleado.apellido;
     this.cuadroCargo = empleado.cargo;
     this.cuadroSalario = empleado.salario;
+
+    this.accion = parseInt(this.route.snapshot.queryParams['accion']);
   }
-  actualizaEmpleado(){
+ /*  actualizaEmpleado(){
     let miEmpleado = new Empleado(this.cuadroNombre, this.cuadroApellido, this.cuadroCargo, this.cuadroSalario);
     //Antes de añadir el empleado, quiero hacer uso del servicio que acabamos de crear
    // this.miServicio.muestraMensaje("Nombre del empleado: " + miEmpleado.nombre); no la neesito porque ya lo he inyectado en el empleados.service.ts
@@ -41,6 +44,17 @@ export class ActualizaComponentComponent implements OnInit {
   eliminaEmpleado(){
     this.empleadosService.eliminarEmpleado(this.indice);
     this.router.navigate([""]);
+  } */
+
+  actualizaEmpleado(){
+    if(this.accion==1){
+    let miEmpleado = new Empleado(this.cuadroNombre, this.cuadroApellido, this.cuadroCargo, this.cuadroSalario);
+    this.empleadosService.actualizarEmpleado(this.indice, miEmpleado);    
+    this.router.navigate([""]);
+    }else{
+      this.empleadosService.eliminarEmpleado(this.indice);
+      this.router.navigate([""]);//creo que esto sobra
+      }
   }
 
   public volverHome(){
