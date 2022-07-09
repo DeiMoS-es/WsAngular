@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { DataService } from './data.service';
 import { Empleado } from './empleado.model';
 import { ServicioEmpleadosService } from './servicio-empleados.service';
 
@@ -8,7 +9,7 @@ import { ServicioEmpleadosService } from './servicio-empleados.service';
 })
 export class EmpleadosService {
 
-  constructor(private servicioVentanaEmergente: ServicioEmpleadosService) { }
+  constructor(private servicioVentanaEmergente: ServicioEmpleadosService, private dataService: DataService) { }
 
   empleados: Empleado[] = [
     new Empleado("Nagib", "Delgado", "Presidente", 7500),
@@ -20,6 +21,7 @@ export class EmpleadosService {
   agregarEmpleadoServicio(empleado: Empleado){
     this.servicioVentanaEmergente.muestraMensaje("Nombre del usuario a agregar: " + empleado.nombre + "\n" + "Salario: " + empleado.salario);
     this.empleados.push(empleado);
+    this.dataService.guardarEmpleados(this.empleados);
   }
 
   encontrarEmpleado(indice: number){
