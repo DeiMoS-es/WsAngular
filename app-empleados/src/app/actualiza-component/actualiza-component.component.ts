@@ -38,6 +38,11 @@ export class ActualizaComponentComponent implements OnInit {
     this.router.navigate([""]);//redireccionamiento automatico después de hacer una acción
   }
 
+  eliminaEmpleado(){
+    this.empleadosService.eliminarEmpleado(this.indice);
+    this.router.navigate([""]);
+  }
+
   public volverHome(){
     this.router.navigate([""]);//cadena vacía, ya que es la ruta para ir al Home
   }
