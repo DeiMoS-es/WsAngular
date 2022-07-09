@@ -10,14 +10,17 @@ import { ServicioEmpleadosService } from './servicio-empleados.service';
 export class EmpleadosService {
 
   constructor(private servicioVentanaEmergente: ServicioEmpleadosService, private dataService: DataService) { }
-
-  empleados: Empleado[] = [
+empleados:Empleado[]=[];
+/*   empleados: Empleado[] = [
     new Empleado("Nagib", "Delgado", "Presidente", 7500),
     new Empleado("Celia", "Bosque", "Vice Presidenta", 5500),
     new Empleado("Nadira", "Delgado", "Asesora", 2500),
     new Empleado("Begoña", "Morales", "Empleada", 1500)
-  ];
+  ]; */
 
+  obtenerEmpleados(){
+    return this.dataService.cargarEmpleados();
+  }
   agregarEmpleadoServicio(empleado: Empleado){
     this.servicioVentanaEmergente.muestraMensaje("Nombre del usuario a agregar: " + empleado.nombre + "\n" + "Salario: " + empleado.salario);
     this.empleados.push(empleado);

@@ -7,10 +7,14 @@ import { Empleado } from './empleado.model';
 })
 export class DataService {
 
-  constructor(private HttpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) { }
+
+  cargarEmpleados(){
+    return this.httpClient.get("https://mis-clientes-d83cc-default-rtdb.europe-west1.firebasedatabase.app/datos.json");
+  }
 
   guardarEmpleados(empleados: Empleado[]){
-    this.HttpClient.post("https://mis-clientes-d83cc-default-rtdb.europe-west1.firebasedatabase.app/datos.json", empleados)
+    this.httpClient.put("https://mis-clientes-d83cc-default-rtdb.europe-west1.firebasedatabase.app/datos.json", empleados)
     .subscribe(response=>console.log("Empleados guardados: "+response), 
                error=>console.log("Error: " + error)
                );
