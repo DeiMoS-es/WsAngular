@@ -2,7 +2,9 @@
     <div class="row">
       <div class="col">
         <div >
+          <a [routerLink]="['/actualiza',indice]"><!--Le pasamos el indice a través de la url, para más tarde buscar el empleado por el id-->
           {{indice+1}}: {{empleadoDeLista.nombre}} {{empleadoDeLista.apellido}} {{empleadoDeLista.cargo}} {{empleadoDeLista.salario}}
+          </a>
         </div>
         <app-caracteristicas-empleado-c (caracteristicasEmpleados)="agregarCaracteristica($event)"></app-caracteristicas-empleado-c>
         <ul style="list-style: none ;">
@@ -10,4 +12,4 @@
         </ul>
       </div>
     </div>
-  </div>
+</div>
