@@ -10,7 +10,7 @@ import { ServicioEmpleadosService } from './servicio-empleados.service';
 export class EmpleadosService {
 
   constructor(private servicioVentanaEmergente: ServicioEmpleadosService, private dataService: DataService) { }
-empleados:Empleado[]=[];
+  empleados:Empleado[]=[];
 /*   empleados: Empleado[] = [
     new Empleado("Nagib", "Delgado", "Presidente", 7500),
     new Empleado("Celia", "Bosque", "Vice Presidenta", 5500),
@@ -18,6 +18,10 @@ empleados:Empleado[]=[];
     new Empleado("Begoña", "Morales", "Empleada", 1500)
   ]; */
 
+  
+  setEmpleados(misEmpleados :Empleado[]){
+    this.empleados = misEmpleados;
+  }
   obtenerEmpleados(){
     return this.dataService.cargarEmpleados();
   }
@@ -34,10 +38,13 @@ empleados:Empleado[]=[];
 
   actualizarEmpleado(indice: number, empleado: Empleado){
     let empleadoModificado = this.empleados[indice];//almaceno en la variable empleadoModificado el empleado que quiero modificar
+    
     empleadoModificado.nombre = empleado.nombre;//almacenamos en empleadoModificado, el nombre del empleado que llega
     empleadoModificado.apellido = empleado.apellido;
     empleadoModificado.cargo = empleado.cargo;
     empleadoModificado.salario = empleado.salario;
+
+    this.dataService.actualizarEmpleado(indice, empleado);
   }
 
   eliminarEmpleado(indice: number){
