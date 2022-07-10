@@ -16,6 +16,7 @@ import { ActualizaComponentComponent } from './actualiza-component/actualiza-com
 import { ErrorPersonalizadoComponent } from './error-personalizado/error-personalizado.component';
 import { DataService } from './data.service';
 import { HttpClientModule } from '@angular/common/http';
+import { LoginComponent } from './login/login.component';
 
 //definimos las rutas para los distintos componentes
 const appRoutes: Routes=[
@@ -24,6 +25,7 @@ const appRoutes: Routes=[
   ,{path:'quienes', component: QuienesComponentComponent}
   ,{path:'contacto', component: ContactoComponentComponent}
   ,{path:'actualiza/:id', component: ActualizaComponentComponent}//preparamos la url de actualiza para que reciba el id
+  ,{path:'login', component: LoginComponent}
   ,{path:'**', component: ErrorPersonalizadoComponent}//ruta error, siempre en último lugar
 ];
 
@@ -37,7 +39,8 @@ const appRoutes: Routes=[
     QuienesComponentComponent,
     ContactoComponentComponent,
     ActualizaComponentComponent,
-    ErrorPersonalizadoComponent
+    ErrorPersonalizadoComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
